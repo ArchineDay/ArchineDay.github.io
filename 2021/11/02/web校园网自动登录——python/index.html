@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Archine's blog | Archine's blog</title><meta name="author" content="Archine"><meta name="copyright" content="Archine"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="web校园网自动登录——pythonweb登录校园网，每次都要账号密码验证，很烦。 写个python脚本来实现自动登录 第一步直接上代码 import requests url &#x3D; &quot;http:&#x2F;&#x2F;1.1.1.1:801&#x2F;eportal&#x2F;?c&#x3D;ACSetting&amp;a&#x3D;Login&amp;protocol&#x3D;http:&amp;hostname&#x3D;1.1.1.1&amp;iTermTy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Archine&#39;s blog">
+<meta property="og:url" content="http://archine.com/2021/11/02/web%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95%E2%80%94%E2%80%94python/index.html">
+<meta property="og:site_name" content="Archine&#39;s blog">
+<meta property="og:description" content="web校园网自动登录——pythonweb登录校园网，每次都要账号密码验证，很烦。 写个python脚本来实现自动登录 第一步直接上代码 import requests url &#x3D; &quot;http:&#x2F;&#x2F;1.1.1.1:801&#x2F;eportal&#x2F;?c&#x3D;ACSetting&amp;a&#x3D;Login&amp;protocol&#x3D;http:&amp;hostname&#x3D;1.1.1.1&amp;iTermTy">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png">
+<meta property="article:published_time" content="2021-11-02T08:32:22.577Z">
+<meta property="article:modified_time" content="2021-11-02T08:31:53.866Z">
+<meta property="article:author" content="Archine">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://archine.com/2021/11/02/web%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95%E2%80%94%E2%80%94python/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Archine","link":"链接: ","source":"来源: Archine's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Archine\'s blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-02 16:31:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://gitee.com/Archine/blogimage/raw/master/img/五条悟.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Archine's blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-02T08:32:22.577Z" title="发表于 2021-11-02 16:32:22">2021-11-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-02T08:31:53.866Z" title="更新于 2021-11-02 16:31:53">2021-11-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="web校园网自动登录——python"><a href="#web校园网自动登录——python" class="headerlink" title="web校园网自动登录——python"></a>web校园网自动登录——python</h1><p>web登录校园网，每次都要账号密码验证，很烦。</p>
+<p>写个python脚本来实现自动登录</p>
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>直接上代码</p>
+<p><code>import requests</code></p>
+<p><code>url = &quot;http://1.1.1.1:801/eportal/?c=ACSetting&amp;a=Login&amp;protocol=http:&amp;hostname=1.1.1.1&amp;iTermType=1&amp;wlanuserip=10.133.63.207&amp;wlanacip=null&amp;wlanacname=null&amp;mac=00-00-00-00-00-00&amp;ip=10.133.63.207&amp;enAdvert=0&amp;queryACIP=0&amp;loginMethod=1&quot;</code></p>
+<p><code>data = &#123;</code><br>    <code>&quot;DDDDD&quot;: &quot;,0,你的账号@unicom&quot;,</code><br>    <code>&quot;upass&quot;: &quot;你的密码&quot;,</code><br>    <code>&quot;R1&quot;: &quot;0&quot;,</code><br>    <code>&quot;R2&quot;: &quot;0&quot;,</code><br>    <code>&quot;R3&quot;: &quot;0&quot;,</code><br>    <code>&quot;R6&quot;: &quot;0&quot;,</code><br>    <code>&quot;para&quot;: &quot;00&quot;,</code><br>    <code>&quot;0MKKey&quot;: &quot;123456&quot;</code></p>
+<p><code>&#125;</code></p>
+<p><code>header = &#123;</code><br>    <code>&quot;Accept&quot;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&quot;,</code><br>    <code>&quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;,</code><br>    <code>&quot;Accept-Language&quot;: &quot;zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6&quot;,</code><br>    <code>&quot;Cache-Control&quot;: &quot;max-age=0&quot;,</code><br>    <code>&quot;Connection&quot;: &quot;keep-alive&quot;,</code><br>    <code>&quot;Content-Length&quot;: &quot;173&quot;,</code><br>    <code>&quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;,</code><br>    <code>&quot;Cookie&quot;: &quot;program=NEW; vlan=0; ssid=null; areaID=null; ISP_select=@unicom; md5_login2=%2C0%2C201928034218@unicom%7Cstr2950715596; _ga=GA1.1.1889981129.1614508958; _ga_PGV1K2BN4M=GS1.1.1614508957.1.0.1614508964.0; ip=10.133.63.207; PHPSESSID=ua9nsujtffq81s5n5b9rq55f73&quot;,</code><br>    <code>&quot;Host&quot;: &quot;1.1.1.1:801&quot;,</code><br>    <code>&quot;Origin&quot;: &quot;http://1.1.1.1&quot;,</code><br>    <code>&quot;Referer&quot;: &quot;http://1.1.1.1/&quot;,</code><br>    <code>&quot;Upgrade-Insecure-Requests&quot;: &quot;1&quot;,</code><br>    <code>&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36 Edg/94.0.992.47&quot;</code><br><code>&#125;</code></p>
+<p><code>response=requests.post(url,data,headers=header).status_code</code><br><code>#作用是向网页发送请求数据。需要提供网址，data和header三个数据</code><br><code>print(&quot;已经连上网啦，快去冲浪吧！&quot;)</code></p>
+<p><code>print(&quot;回应代码&#123;&#125;&quot;.format(response))</code></p>
+<p>`` </p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>将脚本放进windows启动目录</p>
+<p>C:\Users\Archine\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</p>
+<p>可以实现开机自动运行登录脚本</p>
+<p><img src="https://gitee.com/Archine/blogimage/raw/master/img/202111021624840.png" alt="image-20211102155311635"></p>
+<p>到这一步基本可以实现开机自动连接校园网，但是会有个一秒钟的cmd弹窗，不够完美，为了达到与家用wifi无差别的使用体验，这里再提供另一种方法。</p>
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>使用Windows任务计划</p>
+<p><img src="https://gitee.com/Archine/blogimage/raw/master/img/202111021606828.png" alt="image-20211102160647728"></p>
+<p>名字随意取，我这里叫AutoLogin</p>
+<p><img src="https://gitee.com/Archine/blogimage/raw/master/img/202111021608041.png" alt="image-20211102160808014"></p>
+<p>选择触发器，点击新建</p>
+<p><img src="https://gitee.com/Archine/blogimage/raw/master/img/202111021624841.png" alt="image-20211102160856766"></p>
+<p>选择发生事件时，新建筛选器</p>
+<p><img src="https://gitee.com/Archine/blogimage/raw/master/img/202111021624843.png" alt="image-20211102161006358"></p>
+<p>选择xml，手动编辑，输入代码<QueryList><br> <code>&lt;Query Id=&quot;0&quot; Path=&quot;Microsoft-Windows-WLAN-AutoConfig/Operational&quot;&gt;</code></p>
+<p>  <Select Path="Microsoft-Windows-WLAN-AutoConfig/Operational">*[System[Provider[@Name=’Microsoft-Windows-WLAN-AutoConfig’] and (EventID=8001)]][EventData[Data[@Name=’SSID’]=’zut-stu’]]</Select><br> <code>&lt;/Query&gt;</code><br><code>&lt;/QueryList&gt;</code></p>
+<p><img src="https://gitee.com/Archine/blogimage/raw/master/img/202111021624844.png" alt="image-20211102161750461"></p>
+<p>确定后选择操作，新建启动程序找到自己的python脚本文件</p>
+<p><img src="https://gitee.com/Archine/blogimage/raw/master/img/202111021624845.png" alt="image-20211102161940481"></p>
+<p>最后条件设置</p>
+<p><img src="https://gitee.com/Archine/blogimage/raw/master/img/202111021624846.png" alt="image-20211102162053146"></p>
+<p><img src="https://gitee.com/Archine/blogimage/raw/master/img/202111021624847.png" alt="image-20211102162101139"></p>
+<p>供参考，大家可以更具实际情况设置</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>附上我的gitee地址<a target="_blank" rel="noopener" href="https://gitee.com/Archine/grocery/tree/master/zut-stu_connector%EF%BC%8C%E9%9C%80%E8%A6%81%E5%8F%AF%E8%87%AA%E5%8F%96%E3%80%82">https://gitee.com/Archine/grocery/tree/master/zut-stu_connector，需要可自取。</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Archine</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://archine.com/2021/11/02/web%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95%E2%80%94%E2%80%94python/">http://archine.com/2021/11/02/web%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95%E2%80%94%E2%80%94python/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Archine.com" target="_blank">Archine's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://gitee.com/Archine/blogimage/raw/master/img/202110231454089.png" target="_blank"><img class="post-qr-code-img" src="https://gitee.com/Archine/blogimage/raw/master/img/202110231454089.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://gitee.com/Archine/blogimage/raw/master/img/202110231454302.jpg" target="_blank"><img class="post-qr-code-img" src="https://gitee.com/Archine/blogimage/raw/master/img/202110231454302.jpg" alt="支付寶"/></a><div class="post-qr-code-desc">支付寶</div></li></ul></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#web%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95%E2%80%94%E2%80%94python"><span class="toc-number">1.</span> <span class="toc-text">web校园网自动登录——python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5"><span class="toc-number">1.1.</span> <span class="toc-text">第一步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5"><span class="toc-number">1.2.</span> <span class="toc-text">第二步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5"><span class="toc-number">1.3.</span> <span class="toc-text">第三步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">1.4.</span> <span class="toc-text">最后</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By Archine</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
